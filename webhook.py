@@ -28,7 +28,7 @@ def makeResponse(req):
     weather = json_object['list']
     condition = "unknown"
     for i in range(0,30):
-        print(date,'-------> ',weather[i])
+        print(date)
         if date in weather[i]['dt_txt']:
             condition = weather[i]['weather'][0]['description']
             break
