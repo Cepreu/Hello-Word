@@ -22,13 +22,14 @@ def makeResponse(req):
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     date = parameters.get("date")
+    date = date[:10]
     r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city +'&appid=2ad82afaa5f75032938500553c6a858a')
     json_object = r.json()
     weather = json_object['list']
     condition = "unknown"
     for i in range(0,30):
+        print(date,'-------> ',weather[i])
         if date in weather[i]['dt_txt']:
-            print('-------> ',weather[i])
             condition = weather[i]['weather'][0]['description']
             break
 
