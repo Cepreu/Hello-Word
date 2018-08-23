@@ -40,7 +40,7 @@ def makeResponse(req):
     "source": "apiai-weather-webhook",
     "payload": {
     "google": {
-    "expectUserResponse": true,
+    "expectUserResponse": True,
     "richResponse": {
     "items": [
     {
