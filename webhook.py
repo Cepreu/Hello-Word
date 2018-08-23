@@ -36,9 +36,22 @@ def makeResponse(req):
     
     speech = "The forecast for " + city + " for " + date + " is " + condition
     return {
-    "speech": speech,
-    "displayText": speech,
-    "source": "apiai-weather-webhook"
+    "fulfillmentText": "This is a text response",
+    "source": "apiai-weather-webhook",
+    "payload": {
+    "google": {
+    "expectUserResponse": true,
+    "richResponse": {
+    "items": [
+    {
+    "simpleResponse": {
+        "textToSpeech": condition
+    }
+    }
+    ]
+    }
+    }
+    }
     }
 
 if __name__ == '__main__':
