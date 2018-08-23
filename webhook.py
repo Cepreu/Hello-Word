@@ -25,8 +25,10 @@ def makeResponse(req):
     r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city +'&appid=2ad82afaa5f75032938500553c6a858a')
     json_object = r.json()
     weather = json_object['list']
+    condition = "unknown"
     for i in range(0,30):
         if date in weather[i]['dt_txt']:
+    	    print(json.dumps(weather[i], indent=4))
             condition = weather[i]['weather'][0]['description']
             break
     speech = "The forecast for " + city + " for " + date + " is " + condition
