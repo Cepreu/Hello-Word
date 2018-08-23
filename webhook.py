@@ -31,6 +31,8 @@ def makeResponse(req):
             print(json.dumps(weather[i], indent=4))
             condition = weather[i]['weather'][0]['description']
             break
+
+    
     speech = "The forecast for " + city + " for " + date + " is " + condition
     return {
     "speech": speech,
