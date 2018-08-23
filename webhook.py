@@ -28,9 +28,9 @@ def makeResponse(req):
     condition = "unknown"
     for i in range(0,30):
         if date in weather[i]['dt_txt']:
-    	    print(json.dumps(weather[i], indent=4))
-            condition = weather[i]['weather'][0]['description']
-            break
+		print(json.dumps(weather[i], indent=4))
+		condition = weather[i]['weather'][0]['description']
+		break
     speech = "The forecast for " + city + " for " + date + " is " + condition
     return {
     "speech": speech,
